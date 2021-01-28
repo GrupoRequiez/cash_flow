@@ -56,7 +56,7 @@ class CashFlow(models.TransientModel):
     #     'cash.flow.detail', 'cash_flow_id', 'Deatils')
 
     @api.multi
-    @keep_wizard_open
+    # @keep_wizard_open
     def calculate(self):
         account_ids = (6808, 6809, 6810, 6811, 6812, 6813, 6814, 6815, 6816, 6817, 6818,
                        6819, 6820, 7192, 6821, 6822, 6823, 6824, 6825, 7194, 6826, 6827, 7177, 7288)
@@ -184,6 +184,15 @@ class CashFlow(models.TransientModel):
                     'commissions_amount': d['COMIS'],
                     'withholdings_amount': d['RET']
                 })
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'cash.flow',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_id': self.id,
+            'views': [(False, 'form')],
+            'target': 'new',
+        }
 
     @api.multi
     def print_report(self, docids, data=None):
