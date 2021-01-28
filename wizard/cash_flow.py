@@ -2,13 +2,10 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 
-# from ftplib import FTP, FTP_TLS
 from io import StringIO, BytesIO
 import base64
 import csv
-# import pytz
 from datetime import date, datetime, timedelta
-# from odoo.exceptions import ValidationError
 import logging
 from odoo import api, fields, models, exceptions, _
 import collections
@@ -155,8 +152,6 @@ class CashFlow(models.TransientModel):
             data_data = {
                 'CUENTAS': account_name,
                 'INICIAL': balance,
-                # 'TRASPASOS+': credit,
-                # 'TRASPASOS-': debit,
                 'TRASPASOS': credit-debit,
                 'INGRESOS': income,
                 'RENDIMIENTOS': yield_,
