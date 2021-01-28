@@ -64,7 +64,7 @@ class CashFlow(models.TransientModel):
         dict_list = []
         data = []
         fieldnames = ['CUENTAS', 'INICIAL', 'TRASPASOS', 'INGRESOS', 'RENDIMIENTOS',
-                      'ENTRADAS', 'PAGOS', 'COMIS.', 'RET', 'SALIDAS', 'SALDO']
+                      'ENTRADAS', 'PAGOS', 'COMIS', 'RET', 'SALIDAS', 'SALDO']
         account_name = ""
 
         for account in account_ids:

@@ -7,8 +7,8 @@
     string="Cash flow report"
     model="cash.flow"
     report_type="qweb-pdf"
-    name="cash_flow.report_template"
-    file="cash_flow.report_template"
+    name="cash_flow.cash_flow_report_template"
+    file="cash_flow.cash_flow_report_template"
     paperformat="cash_flow.report_paperformat"/>
   <!-- paperformat="incoming_products_kardex.incoming_products_kardex_paperformat" -->
 
