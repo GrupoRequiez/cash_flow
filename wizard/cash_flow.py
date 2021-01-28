@@ -58,6 +58,7 @@ class CashFlow(models.TransientModel):
     # @keep_wizard_open
     @api.multi
     def calculate(self):
+        detail = self.env['cash.flow.detail'].search([]).unlink()
         account_ids = (6808, 6809, 6810, 6811, 6812, 6813, 6814, 6815, 6816, 6817, 6818,
                        6819, 6820, 7192, 6821, 6822, 6823, 6824, 6825, 7194, 6826, 6827, 7177, 7288)
         AccountMoveLine_Obj = self.env['account.move.line']
@@ -149,20 +150,21 @@ class CashFlow(models.TransientModel):
                 order="date")
             withholdings = sum([line.credit for line in move_line_withholdings_ids])
 
-            data_data = {
-                'CUENTAS': account_name,
-                'INICIAL': balance,
-                'TRASPASOS': credit-debit,
-                'INGRESOS': income,
-                'RENDIMIENTOS': yield_,
-                'ENTRADAS': income+yield_,
-                'PAGOS': exprenses,
-                'COMIS': commissions,
-                'RET': withholdings,
-                'SALIDAS': exprenses+commissions+withholdings,
-                'SALDO': balance+(credit-debit)+(income+yield_)-(exprenses+commissions+withholdings)
-            }
-            data.append(data_data)
+            if balance+(credit-debit)+(income+yield_)-(exprenses+commissions+withholdings) != 0:
+                data_data = {
+                    'CUENTAS': account_name,
+                    'INICIAL': balance,
+                    'TRASPASOS': credit-debit,
+                    'INGRESOS': income,
+                    'RENDIMIENTOS': yield_,
+                    'ENTRADAS': income+yield_,
+                    'PAGOS': exprenses,
+                    'COMIS': commissions,
+                    'RET': withholdings,
+                    'SALIDAS': exprenses+commissions+withholdings,
+                    'SALDO': balance+(credit-debit)+(income+yield_)-(exprenses+commissions+withholdings)
+                }
+                data.append(data_data)
 
         self.getted = True
         if self.report_format == 'csv':
@@ -210,10 +212,10 @@ class CashFlowDetails(models.TransientModel):
 
     cashflow_id = fields.Many2one('cash.flow', 'CashFlow', readonly=True)
     account_name = fields.Char('Account')
-    initial_balance = fields.Float('Initial balance')
-    transfer_amount = fields.Float('Transfer')
-    income_ammount = fields.Float('Income')
-    yield_amount = fields.Float('Yield')
-    expense_amount = fields.Float('Expense')
-    commissions_amount = fields.Float('commission')
-    withholdings_amount = fields.Float('withholding')
+    initial_balance = fields.Float('Initial balance', digits=(15, 2))
+    transfer_amount = fields.Float('Transfer', digits=(15, 2))
+    income_ammount = fields.Float('Income', digits=(15, 2))
+    yield_amount = fields.Float('Yield', digits=(15, 2))
+    expense_amount = fields.Float('Expense', digits=(15, 2))
+    commissions_amount = fields.Float('commission', digits=(15, 2))
+    withholdings_amount = fields.Float('withholding', digits=(15, 2))

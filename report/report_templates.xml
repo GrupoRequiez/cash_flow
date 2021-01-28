@@ -4,152 +4,108 @@
     <t t-set="docs" t-value="docs.with_context({'lang':user.partner_id.lang})"/>
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
-          <t t-call="web.basic_layout">
-            <div class="page">
-              <div style="background-color: rgb(252, 199, 187 ); text-align: center; border: 1px solid black;">
-                <div style="text-decoration: underline;">
-                  <h1>
-                    GRUPO REQUIEZ SA DE CV
-                  </h1>
-                  <h3>
-                    REPORTE FLUJO DE EFECTIVO
-                  </h3>
-                </div>
-                <h6>
-                  PERIODO: <span t-field="o.date_start"/> AL <span t-field="o.date_end"/>
-                </h6>
-              </div>
-              <div class="row mt32 mb32">
-                <table class="table table-condensed">
-                  <thead>
-                    <tr>
-                      <th>
-                        <span>CUENTA</span>
-                      </th>
-                      <th>
-                        <span>SALDO INICIAL</span>
-                      </th>
-                      <th>
-                        <span>TRASPASOS</span>
-                      </th>
-                      <th>
-                        <span>INGRESOS</span>
-                      </th>
-                      <th>
-                        <span>RENDIMIENTOS</span>
-                      </th>
-                      <th>
-                        <span>ENTRADAS</span>
-                      </th>
-                      <th>
-                        <span>PAGOS</span>
-                      </th>
-                      <th>
-                        <span>COMIS.</span>
-                      </th>
-                      <th>
-                        <span>RET.</span>
-                      </th>
-                      <th>
-                        <span>SALIDAS</span>
-                      </th>
-                      <th>
-                        <span>SALDO</span>
-                      </th>
-                    </tr>
-                  </thead>
+			<t t-call="web.basic_layout">
+				<div class="page">
+					<div style="background-color: rgb(252, 199, 187 ); text-align: center; border: 1px solid black;">
+						<div style="text-decoration: underline;">
+							<h1>
+								GRUPO REQUIEZ SA DE CV
+							</h1>
+							<h3>
+								REPORTE FLUJO DE EFECTIVO
+							</h3>
+						</div>
+						<h6>
+							PERIODO: <span t-field="o.date_start"/> AL <span t-field="o.date_end"/>
+						</h6>
+					</div>
 
-                  <!-- <tbody>
-                    <tr t-foreach="docs.sale_commission_detail_ids" t-as="o">
-                      <td>
-                        <span t-field="o.account_invoice_number"/>
-                      </td>
-                      <td>
-                        <span t-field="o.partner_id.name"/>
-                      </td>
-                      <td>
-                        <span t-field="o.account_invoice_date" t-field-options="{' format': ' dd MM yyyy'}"/>
-                      </td>
-                      <td>
-                        <span t-field="o.account_payment_date" t-field-options="{' format': ' dd MM yyyy'}"/>
-                      </td>
-                      <td>
-                        <span t-field="o.account_payment_amount"/>
-                      </td>
-                      <td>
-                        <span t-field="o.day_difference"/>
-                      </td>
-                      <td>
-                        <span t-field="o.day_int"/>
-                      </td>
-                      <td>
-                        <span t-field="o.penalization"/>
-                      </td>
-                      <td>
-                        <span t-field="o.commission_brand"/>
-                      </td>
-                      <td>
-                        <span t-field="o.before_penalization"/>
-                      </td>
-                      <td>
-                        <span t-field="o.commission"/>
-                      </td>
-                    </tr>
-                  </tbody> -->
-                </table>
-              </div>
-            </div>
-          </t>
-      </t>
+					<div class="row mt32 mb32">
+						<table style="border: 1px solid black;"  class="table table-bordered table-condensed" >
+							<thead>
+								<tr style="font-size: 18px;">
+									<th>
+									  <span>CUENTA</span>
+									</th>
+									<th>
+									  <span>SALDO INICIAL</span>
+									</th>
+									<th>
+									  <span>TRASPASOS</span>
+									</th>
+									<th>
+									  <span>INGRESOS</span>
+									</th>
+									<th>
+									  <span>RENDIMIENTOS</span>
+									</th>
+									<th>
+									  <span>ENTRADAS</span>
+									</th>
+									<th>
+									  <span>PAGOS</span>
+									</th>
+									<th>
+									  <span>COMIS.</span>
+									</th>
+									<th>
+									  <span>RET.</span>
+									</th>
+									<th>
+									  <span>SALIDAS</span>
+									</th>
+									<th>
+									  <span>SALDO</span>
+									</th>
+								 </tr>
+							</thead>
+
+							<tbody>
+								<tr t-foreach="o.cash_flow_detail_ids" t-as="l" style="font-size: 12px; text-align: center">
+									<td>
+										<span t-field="l.account_name"/>
+									</td>
+									<td>
+										<span t-field="l.initial_balance" widget="monetary"/>
+									</td>
+									<td>
+										<span t-field="l.transfer_amount" widget="monetary"/>
+									</td>
+									<td>
+										<span t-field="l.income_ammount" widget="monetary"/>
+									</td>
+									<td>
+										<span t-field="l.yield_amount" widget="monetary"/>
+									</td>
+									<td>
+										<t t-set="income_total" t-value="l.income_ammount+l.yield_amount"/>
+										<t t-esc="income_total" widget="monetary"/>
+									</td>
+									<td>
+										<span t-field="l.expense_amount" widget="monetary"/>
+									</td>
+									<td>
+										<span t-field="l.commissions_amount" widget="monetary"/>
+									</td>
+									<td>
+										<span t-field="l.withholdings_amount" widget="monetary"/>
+									</td>
+									<td>
+										<t t-set="outcome_total" t-value="l.expense_amount+l.commissions_amount+l.withholdings_amount"/>
+										<t t-esc="outcome_total" widget="monetary"/>
+									</td>
+									<td>
+										<t t-set="total" t-value="l.initial_balance+l.transfer_amount+income_total-outcome_total"/>
+										<t t-esc="total" widget="monetary"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</t>
+		</t>
     </t>
-    <!-- <t t-call="web.external_layout">
-        <div class="page">
-          <div class="row mt32 mb32">
-            <table class="table table-condensed">
-              <thead>
-                <tr>
-                  <th>
-                    <span>Number</span>
-                  </th>
-                  <th>
-                    <span>Customer</span>
-                  </th>
-                  <th>
-                    <span>Invoice date</span>
-                  </th>
-                  <th>
-                    <span>Payment date</span>
-                  </th>
-                  <th>
-                    <span>Amount</span>
-                  </th>
-                  <th>
-                    <span>Days of difference</span>
-                  </th>
-                  <th>
-                    <span>Days of interest</span>
-                  </th>
-                  <th>
-                    <span>Penalty amount</span>
-                  </th>
-                  <th>
-                    <span>Brand commission</span>
-                  </th>
-                  <th>
-                    <span>Amount before penalty</span>
-                  </th>
-                  <th>
-                    <span>Commission</span>
-                  </th>
-                  <th>
-                    <span>Brand</span>
-                  </th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-        </div>
-      </t> -->
   </template>
 
   <template id="cash_flow_report_template">
