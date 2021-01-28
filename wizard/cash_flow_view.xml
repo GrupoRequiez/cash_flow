@@ -10,6 +10,7 @@
             <group>
               <field name="date_start" t-options="{'format': 'dd/MM/yyyy'}"/>
               <field name="date_end" t-options="{'format': 'dd/MM/yyyy'}"/>
+              <field name="cash_flow_detail_ids" invisible="True"/>
             </group>
             <group>
               <field name="report_format" widget="radio"/>

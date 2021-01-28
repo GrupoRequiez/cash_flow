@@ -3,14 +3,104 @@
   <template id="cash_flow_report_document">
     <t t-set="docs" t-value="docs.with_context({'lang':user.partner_id.lang})"/>
     <t t-call="web.html_container">
-        <t t-foreach="docs" t-as="o">
-            <t t-call="web.external_layout">
-                <div class="page">
-                    <h2>Report title</h2>
-                    <p>This object's name is <span t-field="o.date_start"/></p>
+      <t t-foreach="docs" t-as="o">
+          <t t-call="web.basic_layout">
+            <div class="page">
+              <div style="background-color: rgb(252, 199, 187 ); text-align: center; border: 1px solid black;">
+                <div style="text-decoration: underline;">
+                  <h1>
+                    GRUPO REQUIEZ SA DE CV
+                  </h1>
+                  <h3>
+                    REPORTE FLUJO DE EFECTIVO
+                  </h3>
                 </div>
-            </t>
-        </t>
+                <h6>
+                  PERIODO: <span t-field="o.date_start"/> AL <span t-field="o.date_end"/>
+                </h6>
+              </div>
+              <div class="row mt32 mb32">
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>
+                        <span>CUENTA</span>
+                      </th>
+                      <th>
+                        <span>SALDO INICIAL</span>
+                      </th>
+                      <th>
+                        <span>TRASPASOS</span>
+                      </th>
+                      <th>
+                        <span>INGRESOS</span>
+                      </th>
+                      <th>
+                        <span>RENDIMIENTOS</span>
+                      </th>
+                      <th>
+                        <span>ENTRADAS</span>
+                      </th>
+                      <th>
+                        <span>PAGOS</span>
+                      </th>
+                      <th>
+                        <span>COMIS.</span>
+                      </th>
+                      <th>
+                        <span>RET.</span>
+                      </th>
+                      <th>
+                        <span>SALIDAS</span>
+                      </th>
+                      <th>
+                        <span>SALDO</span>
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <!-- <tbody>
+                    <tr t-foreach="docs.sale_commission_detail_ids" t-as="o">
+                      <td>
+                        <span t-field="o.account_invoice_number"/>
+                      </td>
+                      <td>
+                        <span t-field="o.partner_id.name"/>
+                      </td>
+                      <td>
+                        <span t-field="o.account_invoice_date" t-field-options="{' format': ' dd MM yyyy'}"/>
+                      </td>
+                      <td>
+                        <span t-field="o.account_payment_date" t-field-options="{' format': ' dd MM yyyy'}"/>
+                      </td>
+                      <td>
+                        <span t-field="o.account_payment_amount"/>
+                      </td>
+                      <td>
+                        <span t-field="o.day_difference"/>
+                      </td>
+                      <td>
+                        <span t-field="o.day_int"/>
+                      </td>
+                      <td>
+                        <span t-field="o.penalization"/>
+                      </td>
+                      <td>
+                        <span t-field="o.commission_brand"/>
+                      </td>
+                      <td>
+                        <span t-field="o.before_penalization"/>
+                      </td>
+                      <td>
+                        <span t-field="o.commission"/>
+                      </td>
+                    </tr>
+                  </tbody> -->
+                </table>
+              </div>
+            </div>
+          </t>
+      </t>
     </t>
     <!-- <t t-call="web.external_layout">
         <div class="page">

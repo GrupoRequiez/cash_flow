@@ -52,11 +52,10 @@ class CashFlow(models.TransientModel):
         ('csv', 'CSV'),
         ('pdf', 'PDF')],
         string="Report", default="csv")
-    # cash_flow_detail_ids = fields.One2many(
-    #     'cash.flow.detail', 'cash_flow_id', 'Deatils')
+    cash_flow_detail_ids = fields.One2many(
+        'cash.flow.detail', 'cashflow_id', 'Deatils')
 
     # @keep_wizard_open
-
     @api.multi
     def calculate(self):
         account_ids = (6808, 6809, 6810, 6811, 6812, 6813, 6814, 6815, 6816, 6817, 6818,
