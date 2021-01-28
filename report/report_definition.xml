@@ -11,6 +11,6 @@
   <!-- paperformat="incoming_products_kardex.incoming_products_kardex_paperformat" -->
 
   <record id="cash_flow_report_pdf" model="ir.actions.report">
-    <field name="print_report_name">Cash flow report</field>
+    <field name="print_report_name">'Cash flow report'</field>
   </record>
 </odoo>
