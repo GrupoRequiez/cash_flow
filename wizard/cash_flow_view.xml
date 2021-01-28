@@ -16,11 +16,12 @@
               <field name="getted" invisible="True"/>
               <field name="data_file_fname" invisible="1"/>
               <field name="data_file" filename="data_file_fname" attrs="{'invisible': ['|',('report_format', '=', 'pdf'),('getted', '=', False)]}"/>
-              <button name="print_report" string="Print" type="object" class="oe_highlight" attrs="{'invisible': ['|',('getted', '=', False),('report_format', '=', 'csv')]}"/>
+              <!-- <button name="print_report" string="Print" type="object" class="oe_highlight" attrs="{'invisible': ['|',('getted', '=', False),('report_format', '=', 'csv')]}"/> -->
             </group>
           </group>
           <footer>
             <button string="Calculate" name="calculate" type="object" class="btn-primary"/>
+            <button name="print_report" string="Print" type="object" class="oe_highlight" attrs="{'invisible': ['|',('getted', '=', False),('report_format', '=', 'csv')]}"/>
             <button string="Cancel" class="btn-default" special="cancel"/>
           </footer>
         </sheet>

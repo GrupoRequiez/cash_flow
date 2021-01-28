@@ -55,8 +55,9 @@ class CashFlow(models.TransientModel):
     # cash_flow_detail_ids = fields.One2many(
     #     'cash.flow.detail', 'cash_flow_id', 'Deatils')
 
-    @api.multi
     # @keep_wizard_open
+
+    @api.multi
     def calculate(self):
         account_ids = (6808, 6809, 6810, 6811, 6812, 6813, 6814, 6815, 6816, 6817, 6818,
                        6819, 6820, 7192, 6821, 6822, 6823, 6824, 6825, 7194, 6826, 6827, 7177, 7288)
@@ -172,7 +173,6 @@ class CashFlow(models.TransientModel):
         else:
             detail = self.env['cash.flow.detail']
             for d in data:
-                print(d)
                 detail.create({
                     'cashflow_id': self.id,
                     'account_name': d['CUENTAS'],
@@ -184,6 +184,7 @@ class CashFlow(models.TransientModel):
                     'commissions_amount': d['COMIS'],
                     'withholdings_amount': d['RET']
                 })
+
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'cash.flow',
@@ -195,10 +196,10 @@ class CashFlow(models.TransientModel):
         }
 
     @api.multi
-    def print_report(self, docids, data=None):
+    def print_report(self):  # , docids, data=None
         if self.getted:
             report = self.env['ir.actions.report']._get_report_from_name(
-                'cash_flow.report_template')
+                'cash_flow.cash_flow_report_template')
             return report.report_action(self)
         else:
             raise exceptions.Warning('No se han generado el reporte')

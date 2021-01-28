@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <record id="report_paperformat" model="report.paperformat">
+  <record id="cash_flow_report_paperformat" model="report.paperformat">
     <field name="name">cash_flow</field>
     <field name="format">custom</field>
     <field name="orientation">Portrait</field>

@@ -2,7 +2,17 @@
 <odoo>
   <template id="cash_flow_report_document">
     <t t-set="docs" t-value="docs.with_context({'lang':user.partner_id.lang})"/>
-    <t t-call="web.external_layout">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Report title</h2>
+                    <p>This object's name is <span t-field="o.date_start"/></p>
+                </div>
+            </t>
+        </t>
+    </t>
+    <!-- <t t-call="web.external_layout">
         <div class="page">
           <div class="row mt32 mb32">
             <table class="table table-condensed">
@@ -49,7 +59,7 @@
             </table>
           </div>
         </div>
-      </t>
+      </t> -->
   </template>
 
   <template id="cash_flow_report_template">
