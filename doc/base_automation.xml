@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- <odoo noupdate="1"> -->
+<odoo>
+  <record id="action_account_move_type_invoice" model="base.automation">
+    <field name="name">[GFC] Account move type invoice</field>
+    <field name="model_id" ref="cash_flow.model_account_invoice"/>
+    <field name="trigger">on_write</field>
+    <field name="active" eval="True"/>
+    <field name="state">code</field>
+    <field name="code">
+## type of account_move invoice is assigned
+for invoice in records:
+  move_line_id=env['account.move.line'].search( [('invoice_id','=',invoice.id)], limit=1)
+  if move_line_id:
+    move_line_id.move_id.write({'move_type':invoice.type})
+    </field>
+  </record>
+
+  <record id="action_account_move_type_payment" model="base.automation">
+    <field name="name">[GFC] Account move type payment</field>
+    <field name="model_id" ref="cash_flow.model_account_payment"/>
+    <field name="trigger">on_write</field>
+    <field name="active" eval="True"/>
+    <field name="state">code</field>
+    <field name="code">
+## type of account_move payment is assigned
+for payment in records:
+  move_line_id=env['account.move.line'].search([('payment_id','=',payment.id)], limit=1)
+  if move_line_id:
+    move_line_id.move_id.write({'move_type':payment.payment_type})
+    </field>
+  </record>
+
+  <record id="action_account_move_type_statement" model="base.automation">
+    <field name="name">[GFC] Account move type statement</field>
+    <field name="model_id" ref="cash_flow.model_account_bank_statement"/>
+    <field name="trigger">on_write</field>
+    <field name="active" eval="True"/>
+    <field name="state">code</field>
+    <field name="code">
+## type of account_move bank statement is assigned
+for statement in records:
+  for line in statement.line_ids:
+    move_line_id=env['account.move.line'].search([('statement_line_id','=',line.id)], limit=1)
+    if move_line_id:
+      if line.amount>0:
+        move_line_id.move_id.write({'move_type':'inbound'})
+      else:
+        move_line_id.move_id.write({'move_type':'outbound'})
+    </field>
+  </record>
+
+</odoo>

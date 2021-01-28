@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+  <report
+    id="cash_flow_report_pdf"
+    string="Cash flow report"
+    model="cash.flow"
+    report_type="qweb-pdf"
+    name="cash_flow.report_template"
+    file="cash_flow.report_template"
+    paperformat="cash_flow.report_paperformat"/>
+  <!-- paperformat="incoming_products_kardex.incoming_products_kardex_paperformat" -->
+
+  <record id="cash_flow_report_pdf" model="ir.actions.report">
+    <field name="print_report_name">'Cash flow report'</field>
+  </record>
+</odoo>

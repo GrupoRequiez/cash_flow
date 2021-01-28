@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="cash_flow_report_document">
+    <t t-set="docs" t-value="docs.with_context({'lang':user.partner_id.lang})"/>
+    <t t-set="cash_flow_detail_sorted" t-value="docs.cash_flow_detail_ids.sorted(key=lambda a:(a.account_name))"/>
+    <t t-foreach="cash_flow_detail_sorted" t-as="o">
+      <t t-call="web.basic_layout">
+        <div class="page">
+          <div class="row mt32 mb32">
+            <table class="table table-condensed">
+              <tr>
+                <td style="border:solid 1px;" colspan="10" width="500">
+                  <h1 style="text-align:center; font-size:60px;">
+                    <strong><t t-esc="o.account_name"/></strong>
+                  </h1>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </t>
+    </t>
+  </template>
+
+  <template id="cash_flow_report_template">
+    <t t-call="web.html_container">
+      <t t-call="cash_flow.cash_flow_report_document" t-lang="user.partner_id.lang"/>
+    </t>
+  </template>
+</odoo>
