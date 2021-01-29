@@ -14,23 +14,6 @@ import collections
 _logger = logging.getLogger(__name__)
 
 
-def keep_wizard_open(f):
-    def wrapper(*args, **kwargs):
-        f(*args, *kwargs)
-        self = args[0]
-        return {
-            'context': self.env.context,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_id': False,
-            'type': 'ir.actions.act_window',
-            'target': 'new',
-        }
-    return wrapper
-
-
 def data_to_bytes(fieldnames, data):
     writer_file = StringIO()
     writer = csv.DictWriter(writer_file, fieldnames=fieldnames, delimiter=';')
@@ -58,6 +41,7 @@ class CashFlow(models.TransientModel):
     # @keep_wizard_open
     @api.multi
     def calculate(self):
+
         detail = self.env['cash.flow.detail'].search([]).unlink()
         account_ids = (6808, 6809, 6810, 6811, 6812, 6813, 6814, 6815, 6816, 6817, 6818,
                        6819, 6820, 7192, 6821, 6822, 6823, 6824, 6825, 7194, 6826, 6827, 7177, 7288)
@@ -181,9 +165,12 @@ class CashFlow(models.TransientModel):
                     'transfer_amount': d['TRASPASOS'],
                     'income_ammount': d['INGRESOS'],
                     'yield_amount': d['RENDIMIENTOS'],
+                    'income_total': d['ENTRADAS'],
                     'expense_amount': d['PAGOS'],
                     'commissions_amount': d['COMIS'],
-                    'withholdings_amount': d['RET']
+                    'withholdings_amount': d['RET'],
+                    'expense_total': d['SALIDAS'],
+                    'total': d['SALDO']
                 })
 
         return {
@@ -210,12 +197,24 @@ class CashFlowDetails(models.TransientModel):
     _name = 'cash.flow.detail'
     _description = 'Cash flow details'
 
+    @api.multi
+    def compute_currency_id(self):
+        self.currency_id = self.env.user.company_id.currency_id
+
     cashflow_id = fields.Many2one('cash.flow', 'CashFlow', readonly=True)
+    currency_id = fields.Many2one('res.currency', string='Currency',
+                                  compute='compute_currency_id',
+                                  readonly=True)
     account_name = fields.Char('Account')
-    initial_balance = fields.Float('Initial balance', digits=(15, 2))
-    transfer_amount = fields.Float('Transfer', digits=(15, 2))
-    income_ammount = fields.Float('Income', digits=(15, 2))
-    yield_amount = fields.Float('Yield', digits=(15, 2))
-    expense_amount = fields.Float('Expense', digits=(15, 2))
-    commissions_amount = fields.Float('commission', digits=(15, 2))
-    withholdings_amount = fields.Float('withholding', digits=(15, 2))
+    initial_balance = fields.Monetary('Initial balance', currency_field="currency_id")
+    transfer_amount = fields.Monetary('Transfer', currency_field="currency_id")
+    income_ammount = fields.Monetary('Income', currency_field="currency_id")
+    yield_amount = fields.Monetary('Yield', currency_field="currency_id")
+
+    income_total = fields.Monetary('Income total', currency_field="currency_id")
+    expense_amount = fields.Monetary('Expense', currency_field="currency_id")
+    commissions_amount = fields.Monetary('commission', currency_field="currency_id")
+    withholdings_amount = fields.Monetary('withholding', currency_field="currency_id")
+
+    expense_total = fields.Monetary('Expense total', currency_field="currency_id")
+    total = fields.Monetary('Total', currency_field="currency_id")
