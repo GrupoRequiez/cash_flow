@@ -199,6 +199,7 @@ class CashFlowDetails(models.TransientModel):
 
     @api.multi
     def compute_currency_id(self):
+        print(">>>>>>>>>>>>>>>>>>>>", self.env.user.company_id.currency_id)
         self.currency_id = self.env.user.company_id.currency_id
 
     cashflow_id = fields.Many2one('cash.flow', 'CashFlow', readonly=True)
@@ -206,15 +207,13 @@ class CashFlowDetails(models.TransientModel):
                                   compute='compute_currency_id',
                                   readonly=True)
     account_name = fields.Char('Account')
-    initial_balance = fields.Monetary('Initial balance', currency_field="currency_id")
-    transfer_amount = fields.Monetary('Transfer', currency_field="currency_id")
-    income_ammount = fields.Monetary('Income', currency_field="currency_id")
-    yield_amount = fields.Monetary('Yield', currency_field="currency_id")
-
-    income_total = fields.Monetary('Income total', currency_field="currency_id")
-    expense_amount = fields.Monetary('Expense', currency_field="currency_id")
-    commissions_amount = fields.Monetary('commission', currency_field="currency_id")
-    withholdings_amount = fields.Monetary('withholding', currency_field="currency_id")
-
-    expense_total = fields.Monetary('Expense total', currency_field="currency_id")
-    total = fields.Monetary('Total', currency_field="currency_id")
+    initial_balance = fields.Float('Initial balance', digits=(10, 2))
+    transfer_amount = fields.Float('Transfer', digits=(10, 2))
+    income_ammount = fields.Float('Income', digits=(10, 2))
+    yield_amount = fields.Float('Yield', digits=(10, 2))
+    income_total = fields.Float('Income total', digits=(10, 2))
+    expense_amount = fields.Float('Expense', digits=(10, 2))
+    commissions_amount = fields.Float('commission', digits=(10, 2))
+    withholdings_amount = fields.Float('withholding', digits=(10, 2))
+    expense_total = fields.Float('Expense total', digits=(10, 2))
+    total = fields.Float('Total', digits=(10, 2))

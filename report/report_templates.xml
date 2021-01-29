@@ -66,34 +66,34 @@
 										<span t-field="l.account_name"/>
 									</td>
 									<td>
-										<span t-field="l.initial_balance" widget="monetary"/>
+										<span t-field="l.initial_balance" />
 									</td>
 									<td>
-										<span t-field="l.transfer_amount" widget="monetary"/>
+										<span t-field="l.transfer_amount" />
 									</td>
 									<td>
-										<span t-field="l.income_ammount" widget="monetary"/>
+										<span t-field="l.income_ammount" />
 									</td>
 									<td>
-										<span t-field="l.yield_amount" widget="monetary"/>
+										<span t-field="l.yield_amount" />
 									</td>
 									<td>
-										<span style="font-weight:bold" t-field="l.income_total" widget="monetary"/>
+										<span t-field="l.income_total" />
 									</td>
 									<td>
-										<span t-field="l.expense_amount" widget="monetary"/>
+										<span t-field="l.expense_amount" />
 									</td>
 									<td>
-										<span t-field="l.commissions_amount" widget="monetary"/>
+										<span t-field="l.commissions_amount" />
 									</td>
 									<td>
-										<span t-field="l.withholdings_amount" widget="monetary"/>
+										<span t-field="l.withholdings_amount" />
 									</td>
 									<td>
-                    <span style="font-weight:bold" t-field="l.expense_total" widget="monetary"/>
+                    <span t-field="l.expense_total" />
 									</td>
-									<td>
-                  	<t style="font-weight:bold" t-field="l.total" widget="monetary"/>
+									<td style="font-weight:bold">
+                  	<t t-field="l.total" />
 									</td>
 								</tr>
 							</tbody>
