@@ -23,7 +23,7 @@
 					<div class="row mt32 mb32">
 						<table style="border: 1px solid black;"  class="table table-bordered table-condensed" >
 							<thead>
-								<tr style="font-size: 18px;">
+								<tr style="font-size: 18px; background-color: rgb(168, 163, 162);">
 									<th>
 									  <span>CUENTA</span>
 									</th>
@@ -93,7 +93,7 @@
                     <span t-field="l.expense_total" />
 									</td>
 									<td style="font-weight:bold">
-                  	<t t-field="l.total" />
+                  	<span t-field="l.total" />
 									</td>
 								</tr>
 							</tbody>

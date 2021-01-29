@@ -197,15 +197,7 @@ class CashFlowDetails(models.TransientModel):
     _name = 'cash.flow.detail'
     _description = 'Cash flow details'
 
-    @api.multi
-    def compute_currency_id(self):
-        print(">>>>>>>>>>>>>>>>>>>>", self.env.user.company_id.currency_id)
-        self.currency_id = self.env.user.company_id.currency_id
-
     cashflow_id = fields.Many2one('cash.flow', 'CashFlow', readonly=True)
-    currency_id = fields.Many2one('res.currency', string='Currency',
-                                  compute='compute_currency_id',
-                                  readonly=True)
     account_name = fields.Char('Account')
     initial_balance = fields.Float('Initial balance', digits=(10, 2))
     transfer_amount = fields.Float('Transfer', digits=(10, 2))
