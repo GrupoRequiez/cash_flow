@@ -38,7 +38,6 @@ class CashFlow(models.TransientModel):
     cash_flow_detail_ids = fields.One2many(
         'cash.flow.detail', 'cashflow_id', 'Deatils')
 
-    # @keep_wizard_open
     @api.multi
     def calculate(self):
 

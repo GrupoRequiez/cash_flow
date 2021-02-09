@@ -1,0 +1,365 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cash_flow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-08 20:46+0000\n"
+"PO-Revision-Date: 2021-02-08 20:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>COMIS.</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>CUENTA</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>ENTRADAS</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>INGRESOS</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>PAGOS</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>RENDIMIENTOS</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>RET.</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>SALDO INICIAL</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>SALDO</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>SALIDAS</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "<span>TRASPASOS</span>"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "AL"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__account_name
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: cash_flow
+#: model:ir.model,name:cash_flow.model_account_move
+msgid "Account Move"
+msgstr "Asientos contables"
+
+#. module: cash_flow
+#: model:ir.model,name:cash_flow.model_account_invoice
+msgid "Account invoice"
+msgstr "Facturas"
+
+#. module: cash_flow
+#: model:ir.model,name:cash_flow.model_account_payment
+msgid "Account payment"
+msgstr "Pagos"
+
+#. module: cash_flow
+#: selection:cash.flow,report_format:0
+msgid "CSV"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_wizard_view
+msgid "Calculate"
+msgstr "Calcular"
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_wizard_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: cash_flow
+#: model:ir.ui.menu,name:cash_flow.menu_cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_wizard_view
+msgid "Cash Flow"
+msgstr "Flujo de efectivo"
+
+#. module: cash_flow
+#: model:ir.actions.act_window,name:cash_flow.cash_flow_action
+#: model:ir.model,name:cash_flow.model_cash_flow
+msgid "Cash flow"
+msgstr "Flujo de efectivo"
+
+#. module: cash_flow
+#: model:ir.model,name:cash_flow.model_cash_flow_detail
+#: model:ir.model,name:cash_flow.model_cash_flow_details
+msgid "Cash flow details"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.actions.report,name:cash_flow.cash_flow_report_pdf
+msgid "Cash flow report"
+msgstr "Reporte de flujo de efectivo"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__cashflow_id
+msgid "CashFlow"
+msgstr ""
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Commissions"
+msgstr "Comisiones"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__create_uid
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__create_date
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Customer CN"
+msgstr "NC Cliente"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Customer invoice"
+msgstr "Factura de cliente"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Customer payment"
+msgstr "Pago de cliente"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__data_file
+msgid "Data File"
+msgstr "Archivo"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__data_file_fname
+msgid "Data File Fname"
+msgstr "Archivo"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__cash_flow_detail_ids
+msgid "Deatils"
+msgstr "Detalles"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__display_name
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__date_end
+msgid "End Date"
+msgstr "Fecha fin"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__expense_amount
+msgid "Expense"
+msgstr "Gasto"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__expense_total
+msgid "Expense total"
+msgstr "Gasto total"
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "GRUPO REQUIEZ SA DE CV"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__getted
+msgid "Getted"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__id
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__id
+msgid "ID"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__income_ammount
+msgid "Income"
+msgstr "Entrada"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__income_total
+msgid "Income total"
+msgstr "Entrada total"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__initial_balance
+msgid "Initial balance"
+msgstr "Saldo inical"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow____last_update
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__write_uid
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__write_date
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_account_move__move_type
+msgid "Move type"
+msgstr "Tipo de asiento"
+
+#. module: cash_flow
+#: selection:cash.flow,report_format:0
+msgid "PDF"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "PERIODO:"
+msgstr ""
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_wizard_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: cash_flow
+#: model_terms:ir.ui.view,arch_db:cash_flow.cash_flow_report_document
+msgid "REPORTE FLUJO DE EFECTIVO"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__report_format
+msgid "Report"
+msgstr "Reporte"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow__date_start
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Supplier CN"
+msgstr "NC Proveedor"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Supplier invoice"
+msgstr "Factura de proveedor"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Supplier payment"
+msgstr "Pago de proveedor"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__total
+msgid "Total"
+msgstr ""
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__transfer_amount
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Withholdings"
+msgstr "Retenciones"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__yield_amount
+msgid "Yield"
+msgstr "Rendimiento"
+
+#. module: cash_flow
+#: selection:account.move,move_type:0
+msgid "Yields"
+msgstr "Rendimiento"
+
+#. module: cash_flow
+#: model:base.automation,name:cash_flow.action_account_move_type_invoice
+#: model:ir.actions.server,name:cash_flow.action_account_move_type_invoice_ir_actions_server
+msgid "[GFC] Account move type invoice"
+msgstr ""
+
+#. module: cash_flow
+#: model:base.automation,name:cash_flow.action_account_move_type_payment
+#: model:ir.actions.server,name:cash_flow.action_account_move_type_payment_ir_actions_server
+msgid "[GFC] Account move type payment"
+msgstr ""
+
+#. module: cash_flow
+#: model:base.automation,name:cash_flow.action_account_move_type_statement
+#: model:ir.actions.server,name:cash_flow.action_account_move_type_statement_ir_actions_server
+msgid "[GFC] Account move type statement"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model,name:cash_flow.model_account_bank_statement
+msgid "account.bank.statement"
+msgstr ""
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__commissions_amount
+msgid "commission"
+msgstr "Comisión"
+
+#. module: cash_flow
+#: model:ir.model.fields,field_description:cash_flow.field_cash_flow_detail__withholdings_amount
+msgid "withholding"
+msgstr "Retención"
